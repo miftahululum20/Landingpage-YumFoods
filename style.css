@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+    padding: 0 100px;
+    min-height: 100vh;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background: #333;
+    z-index: -2;
+}
+
+.container::after {
+    content: 'Yummy';
+    font-family: Playfair Display;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 255px;
+    margin-left: 20px;
+    z-index: -2;
+    font-weight: 700;
+    color: #000000;
+    opacity: 0.04;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+header .logo {
+    font-family: Playfair Display;
+    font-weight: 700;
+    font-size: 30px;
+    color: #597DF4;
+    text-decoration: none;
+}
+
+header .logo span {
+    color: #151515;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+    margin-top: 20px;
+}
+
+header ul li {
+    margin: 0 18px;
+    list-style: none;
+    transition: 0.5s ease-in-out;
+}
+
+header ul li a {
+    position: relative;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: Playfair Display;
+    padding-left: 4px 10px;
+    color: #151515;
+    transition: 0.2s;
+}
+
+header ul li:nth-child(3) a,
+header ul li:nth-child(4) a,
+header ul li:nth-child(5) a {
+    color: #fff;
+}
+
+header ul li:hover {
+    transform: translateY(-6px);
+}
+
+header ul li a:hover {
+    font-weight: 400;
+}
+
+
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.content .bannertext {
+    position: relative;
+    max-width: 600px;
+    margin-right: 50px;
+}
+
+.content .bannertext div {
+    display: none;
+}
+
+.content .bannertext div.active {
+    display: initial;
+}
+
+.content .bannertext h2 {
+    font-size: 55px;
+    /* text-transform: uppercase; */
+    font-family: Playfair Display;
+    font-weight: 600;
+    line-height: 1.2em;
+    color: #151515;
+    margin-top: -65px;
+}
+
+.content .bannertext p {
+    font-size: 18px;
+    color: #151515;
+    line-height: 1.5em;
+    margin: 20px 0;
+}
+
+.content .bannertext a {
+    position: relative;
+    display: inline-block;
+    /* text-transform: uppercase; */
+    font-weight: 500;
+    font-size: 18px;
+    color: #151515;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.content .bannertext a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+    background: #597DF4;
+    z-index: -1;
+    transition: 0.5s ease-in-out;
+}
+
+.content .bannertext a:hover:before {
+    width: 100%;
+}
+
+.content .bannerimg {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: #000000;
+}
+
+.content .bannerimg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.content .bannerimg img.active {
+    opacity: 1;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px 0;
+}
+
+.icons .icon,
+.icons .control {
+    position: relative;
+    display: flex;
+}
+
+.icons .icon li {
+    list-style: none;
+    margin-right: 25px;
+}
+
+.icons .icon li img {
+    display: inline-block;
+    max-width: 24px;
+    transition: 0.5s ease-in-out;
+}
+
+.icons .icon li:hover img {
+    transform: translateY(-10px);
+}
+
+.icons .control {
+    margin-right: 40px;
+    margin-bottom: -60px;
+}
+
+.icons .control li {
+    list-style: none;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.icons .control li:hover {
+    opacity: 0.5;
+}
+
+.icons .control li img {
+    width: 42px;
+}
+
+
+
+.menuIcon {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 20px 50px;
+    }
+
+    .container::before {
+        display: none;
+    }
+
+    header {
+        padding: 0;
+    }
+
+    .icons .control li {
+        filter: invert(1);
+    }
+
+    .content .bannertext h2 {
+        font-size: 30px;
+    }
+
+    .content {
+        margin-top: 0;
+        flex-direction: column-reverse;
+    }
+
+    .content .bannerimg {
+        width: 100%;
+        height: 40vh;
+        margin: 20px 0;
+    }
+
+    .content .bannertext {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 60px;
+    }
+
+    .content .bannertext p {
+        font-size: 15px;
+        color: #151515;
+    }
+
+    header ul {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        z-index: 10000;
+        padding: 100px 0;
+    }
+
+    header.active ul {
+        display: initial;
+    }
+
+    header ul li {
+        padding: 20px;
+        text-align: center;
+    }
+
+    header ul li a {
+        color: #333333 !important;
+        /* font-size: 36px; */
+    }
+
+    header ul li a:hover::before,
+    header ul li a.active::before {
+        width: 100%;
+    }
+
+    .menuIcon {
+        display: initial;
+        position: fixed;
+        right: 50px;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 100000;
+        background: url(asset/22.png);
+        width: 18px !important;
+        height: 18px !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    header.active .menuIcon {
+        background: url(asset/close.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 7px !important;
+        height: 7px !important;
+        opacity: 0.5;
+    }
+
+    .container::after {
+        display: none;
+    }
+
+    .icons .icon li img {
+        margin-top: 40px;
+        opacity: 0.5;
+    }
+
+    .icons .control {
+        margin-top: -28px;
+        opacity: 0.6;
+        margin-right: 0;
+    }
+
+    .icons .control li {
+        margin-left: 15px;
+    }
+}
+
+@media(max-width:767px) {
+    .container {
+        padding: 20px 50px;
+    }
+
+    .menuIcon {
+        right: 30px;
+    }
+
+    .icons .control li img {
+        max-width: 40px;
+    }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yumfoods</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header id="navbar">
+            <a href="" class="logo">Yum<span>Foods</span></a>
+            <ul>
+                <li><a href="" class="active">Home</a></li>
+                <li><a href="">Menu</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Service</a></li>
+            </ul>
+            <span class="menuIcon" onclick="menuToggle()"></span>
+        </header>
+
+        <div class=" content">
+            <div class="bannertext" id="slideshowText">
+                <div class="active">
+                    <h2>Choose Healthy Foods,<br>To Say Healthy</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                        suffered
+                        alteration in some form, by injected humour, or randomised words which don’t look even
+                        slightly
+                        believable.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div>
+                    <h2>Choose Healthy Foods,<br>To Be Smart</h2>
+                    <p>Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don’t look even
+                        slightly
+                        believable.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div>
+                    <h2>Choose Healthy Foods,<br>To Stay Strong</h2>
+                    <p>Passages of Lorem Ipsum available, but the majority have suffered
+                        alteration in some form, by injected humour, or randomised words which don’t look even
+                        slightly
+                        believable.</p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="bannerimg" id="slideshow">
+                <img src="asset/3.jpg" alt="" class="active">
+                <img src="asset/2.jpg" alt="">
+                <img src="asset/1.jpg" alt="">
+            </div>
+        </div>
+        <div class="icons">
+            <ul class="icon">
+                <li><a href="#"><img src="asset/facebook.png" alt=""></a></li>
+                <li><a href="#"><img src="asset/instagram.png" alt=""></a></li>
+                <li><a href="#"><img src="asset/twitter.png" alt=""></a></li>
+            </ul>
+            <ul class="control">
+                <li><a href="#"><img src="asset/kiri.png" onclick="prevSlide();prevSlideText();" alt=""></a></li>
+                <li><a href="#"><img src="asset/kanan.png" onclick="nextSlide();nextSlideText();" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var slideShow = document.getElementById('slideshow');
+        var slides = slideShow.getElementsByTagName('img');
+        var index = 0;
+
+        function nextSlide() {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        function prevSlide() {
+            slides[index].classList.remove('active');
+            index = (index - 1 + slides.length) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        // untuk mengganti text saat button di pencet
+        var slideshowText = document.getElementById('slideshowText');
+        var slidesText = slideshowText.getElementsByTagName('div');
+        var i = 0;
+
+        function nextSlideText() {
+            slidesText[i].classList.remove('active');
+            i = (i + 1) % slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+
+        function prevSlideText() {
+            slidesText[i].classList.remove('active');
+            i = (i - 1 + slidesText.length) % slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+
+        function menuToggle() {
+            var nav = document.getElementById('navbar');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
